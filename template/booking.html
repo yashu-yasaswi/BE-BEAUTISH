@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BE BEAUTISH - Book a Service</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #ff69b4;
+            color: white;
+            padding: 1em 0;
+            text-align: center;
+        }
+        nav {
+            background-color: #333;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            overflow: hidden;
+        }
+        nav ul li {
+            float: left;
+        }
+        nav ul li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        nav ul li a:hover {
+            background-color: #111;
+        }
+        section {
+            padding: 20px;
+            text-align: center;
+        }
+        .form-container {
+            background-color: #fff;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: auto;
+        }
+        .form-container h2 {
+            color: #ff69b4;
+        }
+        .form-container input, .form-container select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .form-container button {
+            padding: 10px 20px;
+            background-color: #ff69b4;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .form-container button:hover {
+            background-color: #e063a3;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Book a Service</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="{{ url_for('about') }}">About</a></li>
+            <li><a href="{{ url_for('services') }}">Services</a></li>
+            <li><a href="{{ url_for('contact') }}">Contact</a></li>
+        </ul>
+    </nav>
+    <section class="form-container">
+        <h2>Book Your Appointment</h2>
+        <form action="{{ url_for('booking') }}" method="POST">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <input type="text" name="phone" placeholder="Your Phone Number" required>
+            <select name="service" required>
+                <option value="" disabled selected>Select a Service</option>
+                <option value="Hair Care">Hair Care</option>
+                <option value="Facial Treatments">Facial Treatments</option>
+                <option value="Advanced Facial Treatments">Advanced Facial Treatments</option>
+                <option value="Anti-Aging Treatments">Anti-Aging Treatments</option>
+                <option value="Eye Treatment Center">Eye Treatment Center</option>
+                <option value="Body Massage">Body Massage</option>
+                <option value="Makeup Services">Makeup Services</option>
+                <option value="Waxing">Waxing</option>
+                <option value="Nail Care">Nail Care</option>
+                <option value="Body Shaping & Fitness">Body Shaping & Fitness</option>
+            </select>
+            <input type="date" name="date" required>
+            <input type="time" name="time" required>
+            <button type="submit">Book Now</button>
+        </form>
+    </section>
+    <footer>
+        <p>&copy; 2024 BE BEAUTISH. All rights reserved.</p>
+    </footer>
+</body>
+</html>
